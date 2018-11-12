@@ -83,8 +83,9 @@ class ContactPlugin
     public function aroundExecute($subject, $result)
     {
         try {
-            $this->validatedParams();
             $request = $subject->getRequest();
+            $this->validatedParams($request);
+
             $contact = $this->contactFactory->create();
             $contact ->setData('customer_name',$request->getParam('name'));
             $contact ->setData('customer_email',$request->getParam('email'));
@@ -114,9 +115,8 @@ class ContactPlugin
      * @return array
      * @throws \Exception
      */
-    private function validatedParams()
+    private function validatedParams($request)
     {
-        $request = $this->getRequest();
         if (trim($request->getParam('name')) === '') {
             throw new LocalizedException(__('Name is missing'));
         }
