@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Slavik_Contact::contact" title="Contacts" module="Slavik_Contact" sortOrder="51" resource="Slavik_Contact::contact"/>
+        <add id="Slavik_Contact::post" title="Manage Contacts" module="Slavik_Contact" sortOrder="10" action="slavik_contact/post" resource="Slavik_Contact::post" parent="Slavik_Contact::contact"/>
+    </menu>
+</config>

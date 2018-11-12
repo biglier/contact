@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="slavik_contact_plugin" type="Slavik\Contact\Plugin\ContactPlugin" sortOrder="1" />
+    </type>
+</config>
