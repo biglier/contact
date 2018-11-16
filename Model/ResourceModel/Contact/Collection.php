@@ -17,6 +17,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Slavik\Contact\Model\Contact','Slavik\Contact\Model\ResourceModel\Contact');
+        $this->_init('Slavik\Contact\Model\Contact',
+            'Slavik\Contact\Model\ResourceModel\Contact');
     }
 }
