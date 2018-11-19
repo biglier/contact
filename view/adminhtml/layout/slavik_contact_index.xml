@@ -2,7 +2,7 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <uiComponent name="slavik_contact_contact_listing"/>
+            <uiComponent name="slavik_contact_listing"/>
         </referenceContainer>
     </body>
 </page>

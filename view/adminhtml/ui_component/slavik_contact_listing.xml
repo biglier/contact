@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">slavik_contact_contact_listing.slavik_contact_contact_listing_data_source</item>
-            <item name="deps" xsi:type="string">slavik_contact_contact_listing.slavik_contact_contact_listing_data_source</item>
+            <item name="provider" xsi:type="string">slavik_contact_contact_listing_data.slavik_contact_contact_listing_data_source</item>
+            <item name="deps" xsi:type="string">slavik_contact_contact_listing_data.slavik_contact_contact_listing_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">spinner_columns</item>
         <item name="buttons" xsi:type="array">
@@ -32,13 +31,13 @@
             </argument>
         </argument>
     </dataSource>
-        <listingToolbar name="listing_top">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="sticky" xsi:type="boolean">true</item>
-                </item>
-            </argument>
-        </listingToolbar>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+    </listingToolbar>
     <columns name="spinner_columns">
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">

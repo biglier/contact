@@ -33,27 +33,6 @@ class ContactPlugin
      * @var ContactRepository
      */
     protected $contactRepository;
-    /**
-     * @var DataPersistorInterface
-     */
-
-     private $dataPersistor;
-
-    /**
-     * @var Context
-     */
-    private $context;
-
-    /**
-     * @var MailInterface
-     */
-    private $mail;
-
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
-
 
     /**
      * @param ContactFactory $contactFactory
@@ -74,25 +53,12 @@ class ContactPlugin
     public function afterExecute($subject, $result)
     {
 
-            $request = $subject->getRequest();
-            $contact = $this->contactFactory->create();
-            $contact ->setData('customer_name',$request->getParam('name'));
-            $contact ->setData('customer_email',$request->getParam('email'));
-            $contact ->setData('text',$request->getParam('comment'));
-            $this->contactRepository->save($contact);
-            //$subject->messageManager->addSuccessMessage(
-              //  'Thanks for contacting us with your comments and questions. We\'ll respond to you very soon.');
-
-        /**catch (LocalizedException $e) {
-            $this->messageManager->addErrorMessage($e->getMessage());
-        } catch (\Exception $e) {
-            $this->logger->critical($e);
-            $this->messageManager->addErrorMessage(
-                __('An error occurred while processing your form. Please try again later.')
-            );
-            $this->dataPersistor->set('contact_us', $this->getRequest()->getParams());
-        }
-         */
+        $request = $subject->getRequest();
+        $contact = $this->contactFactory->create();
+        $contact->setData('customer_name', $request->getParam('name'));
+        $contact->setData('customer_email', $request->getParam('email'));
+        $contact->setData('text', $request->getParam('comment'));
+        $this->contactRepository->save($contact);
         return $result;
     }
 }
