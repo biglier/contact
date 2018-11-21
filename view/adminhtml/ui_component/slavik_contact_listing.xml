@@ -14,7 +14,7 @@
             </item>
         </item>
     </argument>
-    <dataSource name="nameOfDataSource">
+    <dataSource name="slavik_contact_contact_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">slavik_contact_contact_listing_data_source</argument>
