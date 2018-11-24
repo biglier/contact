@@ -2,7 +2,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="slavik_contact_contact_listing_data_source" xsi:type="string">Slavik\Contact\Model\ResourceModel\Contact\Grid\Collection</item>
+                <item name="slavik_contact_listing_data_source" xsi:type="string">Slavik\Contact\Model\ResourceModel\Contact\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

@@ -58,6 +58,7 @@ class ContactPlugin
         $contact->setData('customer_name', $request->getParam('name'));
         $contact->setData('customer_email', $request->getParam('email'));
         $contact->setData('text', $request->getParam('comment'));
+        $contact->setData('answered_status','false');
         $this->contactRepository->save($contact);
         return $result;
     }
