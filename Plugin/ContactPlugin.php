@@ -49,6 +49,8 @@ class ContactPlugin
     /**
      * @param $subject
      * @param $result
+     * @return mixed
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
      */
     public function afterExecute($subject, $result)
     {

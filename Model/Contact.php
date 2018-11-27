@@ -100,6 +100,7 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
      */
     public function setAnswer($answer)
     {
+        $this->setAnsweredStatus('true');
         return $this->setData(self::ANSWER, $answer);
     }
 
