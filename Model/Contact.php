@@ -16,6 +16,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
 {
     const CACHE_TAG = 'slavik_contact_contact';
 
+    const STATUS_ANSWERED = 1;
+    const STATUS_NOTANSWERED = 0;
     /***
      *
      */
@@ -119,5 +121,10 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     public function setAnsweredStatus($answeredStatus)
     {
         return $this->setData(self::ANSWERED_STATUS, $answeredStatus);
+    }
+
+    public function getAvailableStatuses()
+    {
+        return [self::STATUS_ANSWERED => __('Answered'), self::STATUS_NOTANSWERED=> __('Not answered')];
     }
 }

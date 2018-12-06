@@ -31,7 +31,7 @@
                         <item name="provider" xsi:type="string">slavik_contact_listing.slavik_contact_listing.slavik_contact_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
                         <item name="params" xsi:type="array">
-                            <item name="0" xsi:type="string">edit</item>
+                            <item name="0" xsi:type="string">answer</item>
                             <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
                         </item>
                     </item>
@@ -103,24 +103,21 @@
                 </item>
             </argument>
         </column>
-  <!--      <column name="answered_status">
+        <column name="answered_status">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Slavik\Contact\Model\IsAnswered</item>
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
-                    <item name="label" xsi:type="string" translate="true">answered_status</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Answered status</item>
                 </item>
             </argument>
-        </column> -->
-        <actionsColumn name="actions" class="Slavik\Contact\UI\Component\Listing\AnswerAction">
+        </column>
+        <actionsColumn name="actions" class="Slavik\Contact\UI\Component\Listing\Contact\Column\Action">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">contact_id</item>
+                    <item name="indexField" xsi:type="string">id</item>
                     <item name="sortOrder" xsi:type="number">200</item>
                 </item>
             </argument>

@@ -1,13 +1,13 @@
 <?php
 /**
- * class AnswerAction
+ * class Action
  *
  * @category  Slavik\Contact\UI\Component\Listing;
  * @package   Slavik\Contact
  * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
  * @copyright 2018 Stanislav Lelyuk
  */
-namespace Slavik\Contact\UI\Component\Listing;
+namespace Slavik\Contact\UI\Component\Listing\Contact\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -15,28 +15,37 @@ use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
 
-class AnswerAction extends Column
+class Action extends Column
 {
+    /** Url path */
+    const ROW_EDIT_URL = 'slavik_contact/contact/answer';
     /**
      * @var UrlInterface
      */
-    protected $urlBuilder;
-
+    protected $_urlBuilder;
     /**
-     * @param ContextInterface $context
+     * @var string
+     */
+    private $_editUrl;
+    /**
+     * @param ContextInterface   $context
      * @param UiComponentFactory $uiComponentFactory
-     * @param UrlInterface $urlBuilder
-     * @param array $components
-     * @param array $data
+     * @param UrlInterface       $urlBuilder
+     * @param array              $components
+     * @param array              $data
+     * @param string             $editUrl
      */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
         UrlInterface $urlBuilder,
         array $components = [],
-        array $data = []
-    ) {
-        $this->urlBuilder = $urlBuilder;
+        array $data = [],
+        $editUrl = self::ROW_EDIT_URL
+    )
+    {
+        $this->_urlBuilder = $urlBuilder;
+        $this->_editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -49,20 +58,21 @@ class AnswerAction extends Column
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            $storeId = $this->context->getFilterParam('store_id');
-
             foreach ($dataSource['data']['items'] as &$item) {
-                $item[$this->getData('name')]['edit'] = [
-                    'href' => $this->urlBuilder->getUrl(
-                        'slavik/contact/answer',
-                        ['id' => $item['contact_id'], 'store' => $storeId]
-                    ),
-                    'label' => __('Edit'),
-                    'hidden' => false,
-                ];
+                $name = $this->getData('name');
+                if (isset($item['contact_id'])) {
+                    $item[$name]['answer'] = [
+                        'href' => $this->_urlBuilder->getUrl(
+                            $this->_editUrl,
+                            ['id' => $item['contact_id']]
+                        ),
+                        'label' => __('Answer'),
+                    ];
+                }
             }
         }
-
         return $dataSource;
     }
 }
+
+
