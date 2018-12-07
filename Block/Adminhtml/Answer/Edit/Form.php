@@ -6,7 +6,7 @@
  * Time: 15:02
  */
 
-namespace Slavik\Contact\Block\Adminhtml\Contact\Answer\Edit;
+namespace Slavik\Contact\Block\Adminhtml\Answer\Edit;
 
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
@@ -55,29 +55,48 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $form->setHtmlIdPrefix('slavik_contact_');
-        if ($model->getEntityId()) {
-            $fieldset = $form->addFieldset(
-                'base_fieldset',
-                ['legend' => __('Edit Row Data'), 'class' => 'fieldset-wide']
-            );
-            $fieldset->addField('contact_id', 'hidden', ['name' => 'contact_id']);
-        } else {
-            $fieldset = $form->addFieldset(
-                'base_fieldset',
-                ['legend' => __('Add Row Data'), 'class' => 'fieldset-wide']
-            );
-        }
+        $fieldset = $form->addFieldset(
+            'base_fieldset',
+            ['legend' => __('Contact Info'), 'class' => 'fieldset-wide']
+        );
+        $fieldset->addField('contact_id', 'hidden', ['name' => 'contact_id']);
 
         $fieldset->addField(
-            'custoner_name',
-            'text',
+            'customer_name',
+            'label',
             [
-                'name' => 'custoner_name',
-                'label' => __('Custoner Name'),
+                'name' => 'customer_name',
+                'label' => __('Customer Name')
+            ]
+        );
+        $fieldset->addField(
+            'customer_email',
+            'label',
+            [
+                'name' => 'customer_email',
+                'label' => __('Customer Email'),
                 'id' => 'title',
                 'title' => __('Title'),
-                'class' => 'required-entry',
-                'required' => true,
+            ]
+        );
+        $fieldset->addField(
+            'text',
+            'label',
+            [
+                'name' => 'text',
+                'label' => __('Text'),
+                'id' => 'title',
+                'title' => __('Title'),
+            ]
+        );
+        $fieldset->addField(
+            'answer',
+            'textarea',
+            [
+                'name' => 'answer',
+                'label' => __('Answer'),
+                'id' => 'title',
+                'title' => __('Title'),
             ]
         );
         $form->setValues($model->getData());
