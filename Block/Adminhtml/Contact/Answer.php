@@ -42,15 +42,12 @@ class Answer extends \Magento\Backend\Block\Widget\Form\Container
         $this->_blockGroup = 'Slavik_Contact';
         $this->_controller = 'adminhtml_answer';
         parent::_construct();
-            $this->buttonList->update('save', 'label', __('Save'));
+        $this->buttonList->update('save', 'label', __('Save'));
         $this->buttonList->remove('reset');
+        $this->buttonList->remove('back');
+
     }
 
-    /**
-     * Retrieve text for header element depending on loaded image.
-     *
-     * @return \Magento\Framework\Phrase
-     */
     public function getHeaderText()
     {
         return __('Answer Contact');

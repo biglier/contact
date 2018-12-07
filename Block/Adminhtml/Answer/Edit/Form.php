@@ -95,8 +95,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             [
                 'name' => 'answer',
                 'label' => __('Answer'),
-                'id' => 'title',
-                'title' => __('Title'),
+                'id' => 'answer',
+                'title' => __('Answer text'),
             ]
         );
         $form->setValues($model->getData());
