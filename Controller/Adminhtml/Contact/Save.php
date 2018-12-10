@@ -37,7 +37,7 @@ class Save extends \Magento\Backend\App\Action
 {
     $data = $this->getRequest()->getPostValue();
     if (!$data) {
-        $this->_redirect('/slavik_contact/contact/answer');
+        $this->_redirect('*/*/answer');
         return;
     }
     try {

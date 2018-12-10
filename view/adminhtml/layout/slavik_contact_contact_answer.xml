@@ -2,7 +2,7 @@
           xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
         <body>
             <referenceContainer name="content">
-                <block class="Slavik\Contact\Block\Adminhtml\Contact\Answer" name="answer" />
+                <uiComponent name="slavik_contact_form"/>
             </referenceContainer>
         </body>
     </page>

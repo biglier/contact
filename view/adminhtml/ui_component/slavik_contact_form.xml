@@ -3,18 +3,23 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">slavik_contact_form.slavik_contact_form_data_source</item>
-            <item name="deps" xsi:type="string">slavik_contact_form.slavik_contact_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Contact Information</item>
-        <item name="config" xsi:type="array">
-            <item name="dataScope" xsi:type="string">data</item>
-            <item name="namespace" xsi:type="string">slavik_contact_form</item>
-        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
-        <item name="buttons" xsi:type="array">
-            <item name="delete" xsi:type="string">Slavik\Contact\Block\Adminhtml\Contact\Answer\DeleteButton</item>
-        </item>
     </argument>
+    <settings>
+        <buttons>
+            <!--<button name="save_and_continue" class="Magento\Cms\Block\Adminhtml\Block\Edit\SaveAndContinueButton"/>-->
+            <!--<button name="save" class="Slavik\Contact\Block\Adminhtml\Contact\Save"/>-->
+            <!--<button name="delete" class="Slavik\Contact\Block\Adminhtml\Contact\Delete"/>-->
+            <button name="save" class="Magento\Cms\Block\Adminhtml\Block\Edit\SaveButton"/>
+        </buttons>
+        <namespace>slavik_contact_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>slavik_contact_form.slavik_contact_form_data_source</dep>
+        </deps>
+    </settings>
     <dataSource name="slavik_contact_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
@@ -28,24 +33,36 @@
             </item>
         </argument>
     </dataSource>
-    <fieldset name="employee_details">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="collapsible" xsi:type="boolean">true</item>
-                <item name="label" xsi:type="string" translate="true">Employee Details</item>
-                <item name="sortOrder" xsi:type="number">20</item>
-            </item>
-        </argument>
-        <field name="employee_id">
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+        <field name="contact_id" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Employee Id</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">employee</item>
-                    <item name="dataScope" xsi:type="string">employee_id</item>
+                    <item name="source" xsi:type="string">slavik_contact_form_data_source</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>contact_id</dataScope>
+            </settings>
+        </field>
+        <field name="customer_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">slavik_contact_form_data_source</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Contact name</label>
+                <dataScope>customer_name</dataScope>
+            </settings>
         </field>
     </fieldset>
 </form>
