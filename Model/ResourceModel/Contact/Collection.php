@@ -7,9 +7,12 @@
  * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
  * @copyright 2018 Stanislav Lelyuk
  */
+
 namespace Slavik\Contact\Model\ResourceModel\Contact;
 
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
+class Collection extends AbstractCollection
 {
 
     /**

@@ -15,7 +15,7 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 class Contact extends  AbstractDb
 {
     /**
-     *
+     *  Init Contant
      */
     protected  function  _construct()
     {

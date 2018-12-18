@@ -7,22 +7,13 @@
  * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
  * @copyright 2018 Stanislav Lelyuk
  */
+
 namespace Slavik\Contact\Model;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
 class IsAnswered implements OptionSourceInterface
 {
-    /**
-     * Get Grid row status type labels array.
-     * @return array
-     */
-    public function getOptionArray()
-    {
-        $options = ['1' => __('Answered'),'0' => __('Not Answered')];
-        return $options;
-    }
-
     /**
      * Get Grid row status labels array with empty value for option element.
      *
@@ -46,6 +37,16 @@ class IsAnswered implements OptionSourceInterface
             $res[] = ['value' => $index, 'label' => $value];
         }
         return $res;
+    }
+
+    /**
+     * Get Grid row status type labels array.
+     * @return array
+     */
+    public function getOptionArray()
+    {
+        $options = ['1' => __('Answered'), '0' => __('Not Answered')];
+        return $options;
     }
 
     /**

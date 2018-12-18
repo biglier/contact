@@ -10,17 +10,14 @@
 
 namespace Slavik\Contact\Model;
 
-use Slavik\Contact\Api\Data\ContactInterface;
-use Slavik\Contact\Api;
-use Slavik\Contact\Model\TodoItemFactory;
-use Slavik\Contact\Model\ResourceModel\Contact as ObjectResourceModel;
-use Slavik\Contact\Model\ResourceModel\Contact\CollectionFactory;
-
-use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchResultsInterfaceFactory;
+use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Framework\Exception\CouldNotDeleteException;
-use Magento\Framework\Api\SearchResultsInterfaceFactory;
+use Slavik\Contact\Api;
+use Slavik\Contact\Api\Data\ContactInterface;
+use Slavik\Contact\Model\ResourceModel\Contact as ObjectResourceModel;
+use Slavik\Contact\Model\ResourceModel\Contact\CollectionFactory;
 
 class ContactRepository implements Api\CRepoInterface
 {
@@ -41,10 +38,11 @@ class ContactRepository implements Api\CRepoInterface
         ObjectResourceModel $objectResourceModel,
         CollectionFactory $collectionFactory,
         SearchResultsInterfaceFactory $searchResultsFactory
-    ) {
-        $this->objectFactory        = $objectFactory;
-        $this->objectResourceModel  = $objectResourceModel;
-        $this->collectionFactory    = $collectionFactory;
+    )
+    {
+        $this->objectFactory = $objectFactory;
+        $this->objectResourceModel = $objectResourceModel;
+        $this->collectionFactory = $collectionFactory;
         $this->searchResultsFactory = $searchResultsFactory;
     }
 
@@ -57,7 +55,7 @@ class ContactRepository implements Api\CRepoInterface
     {
         try {
             $this->objectResourceModel->save($object);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             throw new CouldNotSaveException(__($e->getMessage()));
         }
         return $object;
@@ -65,17 +63,13 @@ class ContactRepository implements Api\CRepoInterface
 
     /**
      * @param $id
-     * @return mixed|Contact
+     * @return bool|mixed
+     * @throws CouldNotDeleteException
      * @throws NoSuchEntityException
      */
-    public function getById($id)
+    public function deleteById($id)
     {
-        $object = $this->objectFactory->create();
-        $this->objectResourceModel->load($object, $id);
-        if (!$object->getId()) {
-            throw new NoSuchEntityException(__('Object with id "%1" does not exist.', $id));
-        }
-        return $object;
+        return $this->delete($this->getById($id));
     }
 
     /**
@@ -95,54 +89,16 @@ class ContactRepository implements Api\CRepoInterface
 
     /**
      * @param $id
-     * @return bool|mixed
-     * @throws CouldNotDeleteException
+     * @return mixed|Contact
      * @throws NoSuchEntityException
      */
-    public function deleteById($id)
+    public function getById($id)
     {
-        return $this->delete($this->getById($id));
-    }
-
-    /**
-     * @param SearchCriteriaInterface $criteria
-     * @return \Magento\Framework\Api\SearchResultsInterface|mixed
-     */
-    public function getList(SearchCriteriaInterface $criteria)
-    {
-        $searchResults = $this->searchResultsFactory->create();
-        $searchResults->setSearchCriteria($criteria);
-        $collection = $this->collectionFactory->create();
-        foreach ($criteria->getFilterGroups() as $filterGroup) {
-            $fields = [];
-            $conditions = [];
-            foreach ($filterGroup->getFilters() as $filter) {
-                $condition = $filter->getConditionType() ? $filter->getConditionType() : 'eq';
-                $fields[] = $filter->getField();
-                $conditions[] = [$condition => $filter->getValue()];
-            }
-            if ($fields) {
-                $collection->addFieldToFilter($fields, $conditions);
-            }
+        $object = $this->objectFactory->create();
+        $this->objectResourceModel->load($object, $id);
+        if (!$object->getId()) {
+            throw new NoSuchEntityException(__('Object with id "%1" does not exist.', $id));
         }
-        $searchResults->setTotalCount($collection->getSize());
-        $sortOrders = $criteria->getSortOrders();
-        if ($sortOrders) {
-            /** @var SortOrder $sortOrder */
-            foreach ($sortOrders as $sortOrder) {
-                $collection->addOrder(
-                    $sortOrder->getField(),
-                    ($sortOrder->getDirection() == SortOrder::SORT_ASC) ? 'ASC' : 'DESC'
-                );
-            }
-        }
-        $collection->setCurPage($criteria->getCurrentPage());
-        $collection->setPageSize($criteria->getPageSize());
-        $objects = [];
-        foreach ($collection as $objectModel) {
-            $objects[] = $objectModel;
-        }
-        $searchResults->setItems($objects);
-        return $searchResults;
+        return $object;
     }
 }

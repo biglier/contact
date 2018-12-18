@@ -7,6 +7,7 @@
  * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
  * @copyright 2018 Stanislav Lelyuk
  */
+
 namespace Slavik\Contact\Plugin;
 
 use Slavik\Contact\Model\ContactFactory;
@@ -31,7 +32,8 @@ class ContactPlugin
     public function __construct(
         ContactFactory $contactFactory,
         ContactRepository $contactRepository
-    ) {
+    )
+    {
         $this->contactFactory = $contactFactory;
         $this->contactRepository = $contactRepository;
     }

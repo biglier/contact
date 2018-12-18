@@ -7,12 +7,13 @@
  * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
  * @copyright 2018 Stanislav Lelyuk
  */
+
 namespace Slavik\Contact\UI\Component\Listing\Contact\Column;
 
+use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
-use Magento\Framework\UrlInterface;
 
 
 class Action extends Column
@@ -27,13 +28,14 @@ class Action extends Column
      * @var string
      */
     private $_editUrl;
+
     /**
-     * @param ContextInterface   $context
+     * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
-     * @param UrlInterface       $urlBuilder
-     * @param array              $components
-     * @param array              $data
-     * @param string             $editUrl
+     * @param UrlInterface $urlBuilder
+     * @param array $components
+     * @param array $data
+     * @param string $editUrl
      */
     public function __construct(
         ContextInterface $context,

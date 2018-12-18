@@ -9,20 +9,20 @@
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
 
 
-use Slavik\Contact\Model\ContactFactory;
 use Magento\Framework\Controller\ResultFactory;
+use Slavik\Contact\Model\ContactFactory;
 
 class Answer extends \Magento\Backend\App\Action
 {
     /**
      * @var \Magento\Framework\Registry
      */
-    private $coreRegistry;
+    protected $coreRegistry;
 
     /**
      * @var ContactFactory
      */
-    private $contactFactory;
+    protected $contactFactory;
 
     /**
      * Answer constructor.
@@ -52,14 +52,13 @@ class Answer extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         if ($rowId) {
             $rowData = $rowData->load($rowId);
-            $rowTitle = $rowData->getTitle();
             if (!$rowData->getId()) {
                 $this->messageManager->addError(__('row data no longer exist.'));
                 $this->_redirect('slavik_contact/post/index');
-                return;
+                return ;
             }
         }
-        $this->   coreRegistry->register('row_data', $rowData);
+        $this->coreRegistry->register('row_data', $rowData);
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
         $title = 'Answer Contact';
         $resultPage->getConfig()->getTitle()->prepend($title);

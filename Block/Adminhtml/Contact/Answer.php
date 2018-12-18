@@ -34,20 +34,8 @@ class Answer extends \Magento\Backend\Block\Widget\Form\Container
     }
 
     /**
-     * Initialize Imagegallery Images Edit Block.
+     * @return \Magento\Framework\Phrase|string
      */
-    protected function _construct()
-    {
-        $this->_objectId = 'row_id';
-        $this->_blockGroup = 'Slavik_Contact';
-        $this->_controller = 'adminhtml_answer';
-        parent::_construct();
-        $this->buttonList->update('save', 'label', __('Save'));
-        $this->buttonList->remove('reset');
-        $this->buttonList->remove('back');
-
-    }
-
     public function getHeaderText()
     {
         return __('Answer Contact');
@@ -63,8 +51,22 @@ class Answer extends \Magento\Backend\Block\Widget\Form\Container
         if ($this->hasFormActionUrl()) {
             return $this->getData('form_action_url');
         }
-
         return $this->getUrl('*/*/save');
+    }
+
+    /**
+     * Init form
+     */
+    protected function _construct()
+    {
+        $this->_objectId = 'row_id';
+        $this->_blockGroup = 'Slavik_Contact';
+        $this->_controller = 'adminhtml_answer';
+        parent::_construct();
+        $this->buttonList->update('save', 'label', __('Save'));
+        $this->buttonList->remove('reset');
+        $this->buttonList->remove('back');
+
     }
 
 }

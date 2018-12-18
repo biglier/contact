@@ -10,9 +10,8 @@
 
 namespace Slavik\Contact\Api;
 
-use Slavik\Contact\Api\Data\ContactInterface;
-use Training\ToDoCrud\Api\Data\TodoItemInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Slavik\Contact\Api\Data\ContactInterface;
 
 interface CRepoInterface
 {
@@ -27,12 +26,6 @@ interface CRepoInterface
      * @return mixed
      */
     public function getById($id);
-
-    /**
-     * @param SearchCriteriaInterface $criteria
-     * @return mixed
-     */
-    public function getList(SearchCriteriaInterface $criteria);
 
     /**
      * @param ContactInterface $page

@@ -15,11 +15,11 @@ interface ContactInterface
     /**#@+
      * Constants for keys of data array. Identical to the name of the getter in snake case
      */
-    const CONTACT_ID      = 'contact_id';
-    const CUSTOMER_NAME   = 'customer_name';
-    const CUSTOMER_EMAIL  = 'customer_email';
-    const TEXT            = 'text';
-    const ANSWER          = 'answer';
+    const CONTACT_ID = 'contact_id';
+    const CUSTOMER_NAME = 'customer_name';
+    const CUSTOMER_EMAIL = 'customer_email';
+    const TEXT = 'text';
+    const ANSWER = 'answer';
     const ANSWERED_STATUS = 'answered_status';
     /**#@-*/
 

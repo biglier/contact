@@ -9,47 +9,60 @@
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
 
 
+use Magento\Backend\App\Action\Context;
+use Slavik\Contact\Model\ContactFactory;
+use Slavik\Contact\Model\ContactRepository;
+
 class Save extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Slavik\Contact\Model\ContactFactory
+     * @var ContactFactory
      */
-    var $contactFactory;
+    protected $contactFactory;
+
+    /**
+     * @var ContactRepository
+     */
+    protected $contactRepository;
 
     /**
      * Save constructor.
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Slavik\Contact\Model\ContactFactory $contactFactory
+     * @param Context $context
+     * @param ContactFactory $contactFactory
+     * @param ContactRepository $contactRepository
      */
     public function __construct(
-    \Magento\Backend\App\Action\Context $context,
-    \Slavik\Contact\Model\ContactFactory $contactFactory
-) {
-    parent::__construct($context);
-    $this->contactFactory = $contactFactory;
-}
+        Context $context,
+        ContactFactory $contactFactory,
+        ContactRepository $contactRepository
+    )
+    {
+        parent::__construct($context);
+        $this->contactFactory = $contactFactory;
+        $this->contactRepository = $contactRepository;
+
+    }
 
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function execute()
-{
-    $data = $this->getRequest()->getPostValue();
-    if (!$data) {
-        $this->_redirect('*/*/answer');
-        return;
+    {
+        $data = $this->getRequest()->getPostValue();
+        if (!$data) {
+            $this->_redirect('*/*/answer');
+            return;
+        }
+        try {
+            $contact = $this->contactFactory->create($this->contactRepository->getById($data['id']));
+            $contact->setAnswer($data['answer']);
+            $this->contactRepository->save($contact);
+            $this->messageManager->addSuccess(__('Answer has been successfully saved.'));
+        } catch (\Exception $e) {
+            $this->messageManager->addError(__($e->getMessage()));
+        }
+        $this->_redirect('slavik_contact/post/index');
     }
-    try {
-        $contact = $this->contactFactory->create();
-        $contact=$contact->load($data['id']);
-        $contact->setAnswer($data['answer']);
-        $contact->save();
-        $this->messageManager->addSuccess(__('Answer has been successfully saved.'));
-    } catch (\Exception $e) {
-        $this->messageManager->addError(__($e->getMessage()));
-    }
-    $this->_redirect('slavik_contact/post/index');
-}
 
 }

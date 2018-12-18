@@ -15,16 +15,11 @@ use Slavik\Contact\Api\Data\ContactInterface;
 class Contact extends \Magento\Framework\Model\AbstractModel implements ContactInterface, \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'slavik_contact_contact';
-
+    /**
+     * Status of contact
+     */
     const STATUS_ANSWERED = 1;
     const STATUS_NOTANSWERED = 0;
-    /***
-     *
-     */
-    protected function _construct()
-    {
-        $this->_init('Slavik\Contact\Model\ResourceModel\Contact');
-    }
 
     /**
      * Return unique ID(s) for each object in system
@@ -48,7 +43,6 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
      * @param $id
      * @return ContactInterface
      */
-
     public function setId($id)
     {
         return $this->setData(self::CONTACT_ID, $id);
@@ -107,14 +101,6 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
-     * @return bool/null
-     */
-    public function getAnsweredStatus()
-    {
-        return (bool)$this->getData(self::ANSWERED_STATUS);
-    }
-
-    /**
      * @param $answeredStatus
      * @return ContactInterface
      */
@@ -123,8 +109,27 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
         return $this->setData(self::ANSWERED_STATUS, $answeredStatus);
     }
 
+    /**
+     * @return bool/null
+     */
+    public function getAnsweredStatus()
+    {
+        return (bool)$this->getData(self::ANSWERED_STATUS);
+    }
+
+    /**
+     * @return array
+     */
     public function getAvailableStatuses()
     {
-        return [self::STATUS_ANSWERED => __('Answered'), self::STATUS_NOTANSWERED=> __('Not answered')];
+        return [self::STATUS_ANSWERED => __('Answered'), self::STATUS_NOTANSWERED => __('Not answered')];
+    }
+
+    /***
+     *
+     */
+    protected function _construct()
+    {
+        $this->_init('Slavik\Contact\Model\ResourceModel\Contact');
     }
 }

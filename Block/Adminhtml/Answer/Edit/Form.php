@@ -36,9 +36,9 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     }
 
     /**
-     * Prepare form.
-     *
-     * @return $this
+     * Prepare form
+     * @return \Magento\Backend\Block\Widget\Form\Generic
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function _prepareForm()
     {
