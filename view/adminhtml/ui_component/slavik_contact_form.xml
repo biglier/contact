@@ -4,6 +4,7 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">slavik_contact_form.slavik_contact_form_data_source</item>
+            <item name="deps" xsi:type="string">slavik_contact_form.slavik_contact_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">General Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
@@ -15,17 +16,10 @@
             <!--<button name="delete" class="Slavik\Contact\Block\Adminhtml\Contact\Delete"/>-->
             <button name="save" class="Magento\Cms\Block\Adminhtml\Block\Edit\SaveButton"/>
         </buttons>
-        <namespace>slavik_contact_form</namespace>
-        <dataScope>data</dataScope>
-        <deps>
-            <dep>slavik_contact_form.slavik_contact_form_data_source</dep>
-        </deps>
     </settings>
     <dataSource name="slavik_contact_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">
-                Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
-            </argument>
+            <argument name="class" xsi:type="string">Slavik\Contact\Model\Contact\DataProvider</argument>
             <argument name="name" xsi:type="string">slavik_contact_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">contact_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
@@ -36,47 +30,29 @@
             </item>
         </argument>
     </dataSource>
-    <container name="container_group">
-        <argument name="data" xsi:type="array">
-            <item name="type" xsi:type="string">group</item>
-            <item name="js_config" xsi:type="array">
-                <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
-            </item>
-            <item name="contact_id">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="visible" xsi:type="boolean">true</item>
-                        <item name="dataType" xsi:type="string">text</item>
-                        <item name="formElement" xsi:type="string">label</item>
-                        <item name="source" xsi:type="string">contact_id</item>
-                    </item>
-                </argument>
-            </item>
-        </argument>
-    </container>
     <fieldset name="contact">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="label" xsi:type="string" translate="true">Account Information</item>
             </item>
         </argument>
-        <!-- <field name="contact_id" formElement="input">
-             <argument name="data" xsi:type="array">
-                 <item name="config" xsi:type="array">
-                     <item name="source" xsi:type="string">slavik_contact_form_data_source</item>
-                 </item>
-             </argument>
-             <settings>
-                 <dataType>text</dataType>
-                 <visible>true</visible>
-                 <dataScope>contact_id</dataScope>
-             </settings>
-         </field>-->
+        <field name="contact_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">contact</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <dataScope>contact_id</dataScope>
+            </settings>
+        </field>
 
         <field name="customer_name" sortOrder="20" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">slavik_contact_form_data_source</item>
+                    <item name="source" xsi:type="string">contact</item>
                 </item>
             </argument>
             <settings>
