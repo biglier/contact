@@ -7,6 +7,7 @@
  */
 namespace Slavik\Contact\Model\Contact;
 
+use Slavik\Contact\Model\Contact;
 use Slavik\Contact\Model\ResourceModel\Contact\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
@@ -42,13 +43,14 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
         $items = $this->collection->getItems();
         $this->loadedData = array();
-        /** @var Customer $customer */
+        /** @Contact $contact */
         foreach ($items as $contact) {
             // notre fieldset s'apelle "contact" d'ou ce tableau pour que magento puisse retrouver ses datas :
-            $this->loadedData[$contact->getId()]['contact'] = $contact->getData();
+            $this->loadedData[$contact->getId()] = $contact->getData();
         }
 
-
+        //var_dump($this->loadedData);
+        //die();
         return $this->loadedData;
 
     }

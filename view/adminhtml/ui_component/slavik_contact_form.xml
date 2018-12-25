@@ -36,7 +36,7 @@
                 <item name="label" xsi:type="string" translate="true">Account Information</item>
             </item>
         </argument>
-        <field name="contact_id" formElement="input">
+        <field name="_id" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">contact</item>
