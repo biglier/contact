@@ -20,16 +20,24 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'slavik_contact/contact/answer';
+
     /**
-     * @var UrlInterface
+     * Url Builder
+     *
+     * @var Magento\Framework\UrlInterface;
      */
     protected $_urlBuilder;
+
     /**
+     * Edit Url
+     *
      * @var string
      */
     private $_editUrl;
 
     /**
+     * Action constructor.
+     *
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
      * @param UrlInterface $urlBuilder

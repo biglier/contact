@@ -1,3 +1,13 @@
+<!--
+/**
+ * slavik_contact_listing.xml
+ *
+ * @category  Slavik\Contact\view\adminhtml\ui_component;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com
+ * @copyright 2018 Stanislav Lelyuk
+ */
+-->
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">

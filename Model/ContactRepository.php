@@ -21,9 +21,33 @@ use Slavik\Contact\Model\ResourceModel\Contact\CollectionFactory;
 
 class ContactRepository implements Api\CRepoInterface
 {
+
+    /**
+     * Contact Factory
+     *
+     * @var Slavik\Contact\Model\ContactFactory
+     */
     protected $objectFactory;
+
+    /**
+     * Object Resource Model
+     *
+     * @var Slavik\Contact\Model\ResourceModel\Contact
+     */
     protected $objectResourceModel;
+
+    /**
+     * Collection Factory
+     *
+     * @var CSlavik\Contact\Model\ResourceModel\Contact\CollectionFactory
+     */
     protected $collectionFactory;
+
+    /**
+     * Search Result Interface Factory
+     *
+     * @var Magento\Framework\Api\SearchResultsInterfaceFactory
+     */
     protected $searchResultsFactory;
 
     /**

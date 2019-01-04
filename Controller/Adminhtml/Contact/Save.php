@@ -1,29 +1,33 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 07.12.18
- * Time: 14:15
+ * class Save for saving answer
+ *
+ * @category  Slavik\Contact\Controller\Adminhtml
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
-
 
 use Magento\Backend\App\Action\Context;
 use Slavik\Contact\Model\Contact;
 use Slavik\Contact\Model\ContactFactory;
 use Slavik\Contact\Model\ContactRepository;
 
-//Saving answer
 class Save extends \Magento\Backend\App\Action
 {
     /**
-     * @var ContactFactory
+     * Contact Factory
+     *
+     * @var Slavik\Contact\Model\ContactFactory;
      */
     protected $contactFactory;
 
     /**
-     * @var ContactRepository
+     * Contact Repository
+     *
+     * @var Slavik\Contact\Model\ContactRepository;
      */
     protected $contactRepository;
 

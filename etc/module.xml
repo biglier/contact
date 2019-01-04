@@ -1,4 +1,14 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * module.xml
+ *
+ * @category  Slavik\Contact\etc;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com
+ * @copyright 2018 Stanislav Lelyuk
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="Slavik_Contact" setup_version="1.0.1.1" active="true">

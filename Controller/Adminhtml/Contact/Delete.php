@@ -1,24 +1,26 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 29.11.18
- * Time: 22:30
+ * class Delete for deleting contact
+ *
+ * @category  Slavik\Contact\Controller\Adminhtml
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Setup\Exception;
-use Slavik\Contact\Model\ContactFactory;
 use Slavik\Contact\Model\ContactRepository;
 
-//Deleting contact
 class Delete extends \Magento\Backend\App\Action
 {
 
     /**
-     * @var ContactRepository
+     * Contact Repository
+     *
+     * @var Slavik\Contact\Model\ContactRepository
      */
     protected $contactRepository;
 
@@ -36,6 +38,11 @@ class Delete extends \Magento\Backend\App\Action
         $this->contactRepository = $contactRepository;
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
+     * @throws \Magento\Framework\Exception\CouldNotDeleteException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     public function execute()
     {
         /** @var int $id */

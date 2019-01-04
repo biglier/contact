@@ -1,16 +1,17 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 05.12.18
- * Time: 14:53
+ * class Answer for binding buttons
+ *
+ * @category  Slavik\Contact\Block\Adminhtml;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Block\Adminhtml\Answer;
 
 use Magento\Backend\Block\Widget\Form\Container;
 
-//class for binding buttons
 class Answer extends Container
 {
     /**

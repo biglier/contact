@@ -1,3 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * di.xml
+ *
+ * @category  Slavik\Contact\etc\frontend;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com
+ * @copyright 2018 Stanislav Lelyuk
+ */
+-->
 <config>
     <type name="Magento\Contact\Controller\Index\Post">
         <plugin name="slavik_contact_plugin" type="Slavik\Contact\Plugin\ContactPlugin" sortOrder="1" />

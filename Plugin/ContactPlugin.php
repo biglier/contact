@@ -17,16 +17,21 @@ use Slavik\Contact\Model\ContactRepository;
 class ContactPlugin
 {
     /**
-     * @var ContactFactory
+     * Contact Factory
+     *
+     * @var Slavik\Contact\Model\ContactFactory;
      */
     protected $contactFactory;
 
     /**
-     * @var ContactRepository
+     * Contact Repository
+     *
+     * @var Slavik\Contact\Model\ContactRepository;
      */
     protected $contactRepository;
 
     /**
+     * ContactPlugin constructor.
      * @param ContactFactory $contactFactory
      * @param ContactRepository $contactRepository
      */

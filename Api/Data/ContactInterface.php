@@ -1,6 +1,6 @@
 <?php
 /**
- * interface ContactInterface
+ * interface ContactInterface for all Contact instances
  *
  * @category  Slavik\Contact\Api\Data;
  * @package   Slavik\Contact
@@ -10,7 +10,6 @@
 
 namespace Slavik\Contact\Api\Data;
 
-//Interface for all Contact instances
 interface ContactInterface
 {
     /**#@+
@@ -30,6 +29,8 @@ interface ContactInterface
     public function getId();
 
     /**
+     *
+     *
      * @param $id
      * @return ContactInterface
      */

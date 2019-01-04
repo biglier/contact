@@ -1,19 +1,22 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 05.12.18
- * Time: 15:02
+ * class Form for loking information about contact,saving or deleting it
+ *
+ * @category  Slavik\Contact\Block\Adminhtml\Answer;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Block\Adminhtml\Answer\Edit;
 
-//Form for loking information about contact,saving or deleting it/
 use Slavik\Contact\Model\Contact;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
+     * System store
+     *
      * @var \Magento\Store\Model\System\Store
      */
     protected $_systemStore;
@@ -38,12 +41,15 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
-    protected function _construct()
-    {
-        parent::_construct();
-        $this->setId('edit_form');
-        $this->setTitle(__('Contact Information'));
-    }
+    /**
+     *
+     */
+        protected function _construct()
+        {
+            parent::_construct();
+            $this->setId('edit_form');
+            $this->setTitle(__('Contact Information'));
+        }
 
     /**
      * Prepare form

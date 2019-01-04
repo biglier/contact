@@ -1,13 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 05.12.18
- * Time: 14:46
+ * class Answer
+ *
+ * @category  Slavik\Contact\Controller\Adminhtml
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
-
 
 use Magento\Framework\Controller\ResultFactory;
 use Slavik\Contact\Model\Contact;
@@ -16,12 +17,16 @@ use Slavik\Contact\Model\ContactFactory;
 class Answer extends \Magento\Backend\App\Action
 {
     /**
+     * Core registry
+     *
      * @var \Magento\Framework\Registry
      */
     protected $coreRegistry;
 
     /**
-     * @var ContactFactory
+     * Contact Factory
+     *
+     * @var Slavik\Contact\Model\ContactFactory
      */
     protected $contactFactory;
 

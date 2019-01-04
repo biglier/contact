@@ -1,26 +1,36 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: slava
- * Date: 29.11.18
- * Time: 2:53
+ * class Index
+ *
+ * @category  Slavik\Contact\Controller\Adminhtml
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com>
+ * @copyright 2018 Stanislav Lelyuk
  */
 
 namespace Slavik\Contact\Controller\Adminhtml\Contact;
 
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
+
+    /**
+     * Result Page Factory
+     *
+     * @var Magento\Framework\View\Result\PageFactory;
+     */
     protected $resultPageFactory;
 
     /**
      * Index constructor.
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context $context,
+        PageFactory $resultPageFactory
     )
     {
         parent::__construct($context);

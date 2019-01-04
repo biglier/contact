@@ -1,4 +1,15 @@
+
 <?xml version="1.0"?>
+<!--
+/**
+ * menu.xml
+ *
+ * @category  Slavik\Contact\etc\adminhtml;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com
+ * @copyright 2018 Stanislav Lelyuk
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>

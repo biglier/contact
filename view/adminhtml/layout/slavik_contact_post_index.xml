@@ -1,3 +1,13 @@
+<!--
+/**
+ * slavik_contact_post_index.xml
+ *
+ * @category  Slavik\Contact\view\adminhtml\layout;
+ * @package   Slavik\Contact
+ * @author    Stanislav Lelyuk <lelyuk.stanislav@gmail.com
+ * @copyright 2018 Stanislav Lelyuk
+ */
+-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="styles"/>

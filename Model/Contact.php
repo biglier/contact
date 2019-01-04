@@ -15,6 +15,7 @@ use Slavik\Contact\Api\Data\ContactInterface;
 class Contact extends \Magento\Framework\Model\AbstractModel implements ContactInterface, \Magento\Framework\DataObject\IdentityInterface
 {
     const CACHE_TAG = 'slavik_contact_contact';
+
     /**
      * Status of contact
      */
@@ -125,8 +126,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
         return [self::STATUS_ANSWERED => __('Answered'), self::STATUS_NOTANSWERED => __('Not answered')];
     }
 
-    /***
-     *
+    /**
+     * Init Contact
      */
     protected function _construct()
     {
