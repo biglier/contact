@@ -33,6 +33,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact id
+     *
      * @return int/null
      */
     public function getId()
@@ -41,6 +43,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Set contact id
+     *
      * @param $id
      * @return ContactInterface
      */
@@ -50,6 +54,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact customer name
+     *
      * @return string/null
      */
     public function getCustomerName()
@@ -58,6 +64,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Set contact customer name
+     *
      * @param $customerName
      * @return ContactInterface
      */
@@ -67,6 +75,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact customer email
+     *
      * @return string/null
      */
     public function getCustomerEmail()
@@ -75,6 +85,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact answer
+     *
      * @param $customerEmail
      * @return  ContactInterface
      */
@@ -84,6 +96,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact answer
+     *
      * @return string/null
      */
     public function getAnswer()
@@ -92,6 +106,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Set contact answer
+     *
      * @param $answer
      * @return ContactInterface
      */
@@ -102,6 +118,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Set contact answered status
+     *
      * @param $answeredStatus
      * @return ContactInterface
      */
@@ -111,6 +129,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Return contact answered status
+     *
      * @return bool/null
      */
     public function getAnsweredStatus()
@@ -119,6 +139,8 @@ class Contact extends \Magento\Framework\Model\AbstractModel implements ContactI
     }
 
     /**
+     * Retun contact ansered status
+     *
      * @return array
      */
     public function getAvailableStatuses()

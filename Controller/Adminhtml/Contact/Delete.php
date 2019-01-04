@@ -39,6 +39,8 @@ class Delete extends \Magento\Backend\App\Action
     }
 
     /**
+     * Delete contact
+     *
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
      * @throws \Magento\Framework\Exception\CouldNotDeleteException
      * @throws \Magento\Framework\Exception\NoSuchEntityException

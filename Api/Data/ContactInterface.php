@@ -24,12 +24,14 @@ interface ContactInterface
     /**#@-*/
 
     /**
+     * Return contact id
+     *
      * @return int/null
      */
     public function getId();
 
     /**
-     *
+     * Set contact id
      *
      * @param $id
      * @return ContactInterface
@@ -37,44 +39,60 @@ interface ContactInterface
     public function setId($id);
 
     /**
+     * Return contact customer name
+     *
      * @return string/null
      */
     public function getCustomerName();
 
     /**
+     * Set contact customer name
+     *
      * @param $customerName
      * @return ContactInterface
      */
     public function setCustometName($customerName);
 
     /**
+     * Return contact customer email
+     *
      * @return string/null
      */
     public function getCustomerEmail();
 
     /**
+     * Set contact customer email
+     *
      * @param $customerEmail
      * @return  ContactInterface
      */
     public function setCustomerEmail($customerEmail);
 
     /**
+     * Return contact answer
+     *
      * @return string/null
      */
     public function getAnswer();
 
     /**
+     * Set contact answer
+     *
      * @param $answer
      * @return ContactInterface
      */
     public function setAnswer($answer);
 
     /**
+     * Return contact answered status
+     *
      * @return bool/null
      */
     public function getAnsweredStatus();
 
     /**
+     * Set contact answered status
+     *
      * @param $answeredStatus
      * @return ContactInterface
      */

@@ -22,6 +22,7 @@ class Answer extends Container
     protected $_coreRegistry = null;
 
     /**
+     * Answer constructor.
      * @param \Magento\Backend\Block\Widget\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param array $data
@@ -37,6 +38,8 @@ class Answer extends Container
     }
 
     /**
+     * Return header's text
+     *
      * @return \Magento\Framework\Phrase|string
      */
     public function getHeaderText()
@@ -58,6 +61,8 @@ class Answer extends Container
     }
 
     /**
+     * Return delete URL
+     *
      * @return string
      */
     public function getDeleteUrl()

@@ -17,6 +17,8 @@ use Magento\Framework\Setup\UpgradeSchemaInterface;
 class UpgradeSchema implements UpgradeSchemaInterface
 {
     /**
+     * Upgrade script for table contact
+     *
      * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
      * @throws \Zend_Db_Exception

@@ -50,6 +50,7 @@ class Answer extends \Magento\Backend\App\Action
 
     /**
      * Mapped Grid List page.
+     *
      * @return \Magento\Backend\Model\View\Result\Page
      */
     public function execute()

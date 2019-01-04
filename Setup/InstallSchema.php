@@ -17,6 +17,8 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 class InstallSchema implements InstallSchemaInterface
 {
     /**
+     * Install script for table contact
+     *
      * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
      * @throws \Zend_Db_Exception

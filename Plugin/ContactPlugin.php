@@ -32,6 +32,7 @@ class ContactPlugin
 
     /**
      * ContactPlugin constructor.
+     *
      * @param ContactFactory $contactFactory
      * @param ContactRepository $contactRepository
      */
@@ -45,6 +46,8 @@ class ContactPlugin
     }
 
     /**
+     * Save contact to base after validation
+     *
      * @param $subject
      * @param $result
      * @return mixed

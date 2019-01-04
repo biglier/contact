@@ -42,7 +42,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     }
 
     /**
-     *
+     * Init Form
      */
         protected function _construct()
         {
@@ -53,6 +53,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
 
     /**
      * Prepare form
+     *
      * @return \Magento\Backend\Block\Widget\Form\Generic
      * @throws \Magento\Framework\Exception\LocalizedException
      */

@@ -20,6 +20,7 @@ class Index extends \Magento\Backend\App\Action
 
     /**
      * Index constructor.
+     *
      * @param Context $context
      * @param PageFactory $resultPageFactory
      */
@@ -33,6 +34,8 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
+     * Return Contact's index page
+     *
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
      */
     public function execute()

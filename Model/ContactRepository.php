@@ -71,6 +71,8 @@ class ContactRepository implements Api\CRepoInterface
     }
 
     /**
+     * Save Contact to db
+     *
      * @param ContactInterface $object
      * @return mixed|ContactInterface
      * @throws CouldNotSaveException
@@ -86,6 +88,8 @@ class ContactRepository implements Api\CRepoInterface
     }
 
     /**
+     * Return Contact by it id
+     *
      * @param $id
      * @return bool|mixed
      * @throws CouldNotDeleteException
@@ -97,6 +101,8 @@ class ContactRepository implements Api\CRepoInterface
     }
 
     /**
+     * Delete contact from db
+     *
      * @param ContactInterface $object
      * @return bool|mixed
      * @throws CouldNotDeleteException
@@ -112,6 +118,8 @@ class ContactRepository implements Api\CRepoInterface
     }
 
     /**
+     * Delete contact from db by it id
+     *
      * @param $id
      * @return mixed|Contact
      * @throws NoSuchEntityException
