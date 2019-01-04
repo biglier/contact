@@ -13,6 +13,7 @@ namespace Slavik\Contact\Api;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Slavik\Contact\Api\Data\ContactInterface;
 
+//Interface for all Contact Repositories
 interface CRepoInterface
 {
     /**

@@ -10,6 +10,7 @@
 
 namespace Slavik\Contact\Api\Data;
 
+//Interface for all Contact instances
 interface ContactInterface
 {
     /**#@+

@@ -6,10 +6,12 @@
  * Time: 14:53
  */
 
-namespace Slavik\Contact\Block\Adminhtml\Contact;
+namespace Slavik\Contact\Block\Adminhtml\Answer;
 
+use Magento\Backend\Block\Widget\Form\Container;
 
-class Answer extends \Magento\Backend\Block\Widget\Form\Container
+//class for binding buttons
+class Answer extends Container
 {
     /**
      * Core registry.
@@ -55,7 +57,16 @@ class Answer extends \Magento\Backend\Block\Widget\Form\Container
     }
 
     /**
-     * Init form
+     * @return string
+     */
+    public function getDeleteUrl()
+    {
+        //returning Contact_id for deleting it
+        return $this->getUrl('*/*/delete', ['id'=>$this->_coreRegistry->registry('row_data')->getId()]);
+    }
+
+    /**
+     * Init form & buttons
      */
     protected function _construct()
     {
@@ -63,10 +74,18 @@ class Answer extends \Magento\Backend\Block\Widget\Form\Container
         $this->_blockGroup = 'Slavik_Contact';
         $this->_controller = 'adminhtml_answer';
         parent::_construct();
-        $this->buttonList->update('save', 'label', __('Save'));
         $this->buttonList->remove('reset');
         $this->buttonList->remove('back');
-
+        $this->buttonList->add(
+            'delete',
+            [
+                'label' => __('Delete'),
+                'class' => 'delete',
+                'onclick' => 'deleteConfirm(\'' . __(
+                        'Are you sure you want to do this?'
+                    ) . '\', \'' . $this->getDeleteUrl() . '\')'
+            ]
+        );
     }
 
 }

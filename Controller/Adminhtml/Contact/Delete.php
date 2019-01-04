@@ -13,12 +13,9 @@ use Magento\Setup\Exception;
 use Slavik\Contact\Model\ContactFactory;
 use Slavik\Contact\Model\ContactRepository;
 
+//Deleting contact
 class Delete extends \Magento\Backend\App\Action
 {
-    /**
-     * @var ContactFactory
-     */
-    protected $contactFactory;
 
     /**
      * @var ContactRepository
@@ -28,24 +25,22 @@ class Delete extends \Magento\Backend\App\Action
     /**
      * Answer constructor.
      * @param \Magento\Backend\App\Action\Context $context
-     * @param ContactFactory $contactFactory
      * @param ContactRepository $contactRepository
      */
     public function __construct(
         Context $context,
-        ContactFactory $contactFactory,
         ContactRepository $contactRepository
     )
     {
         parent::__construct($context);
-        $this->contactFactory = $contactFactory;
         $this->contactRepository = $contactRepository;
     }
 
     public function execute()
     {
+        /** @var int $id */
         $id = $this->getRequest()->getParam('id');
-        if (!($contact = $this->contactFactory->create($this->contactRepository->getById($id)))) {
+        if (!($contact = $this->contactRepository->getById($id))) {
             $this->messageManager->addError(__('Unable to proceed. Please, try again.'));
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/index', array('_current' => true));
@@ -58,8 +53,6 @@ class Delete extends \Magento\Backend\App\Action
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/index', array('_current' => true));
         }
-
-        $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/*/index', array('_current' => true));
+        $this->_redirect('slavik_contact/post/index');
     }
 }

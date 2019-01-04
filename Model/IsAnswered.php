@@ -12,6 +12,7 @@ namespace Slavik\Contact\Model;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
+//generate status for contacts
 class IsAnswered implements OptionSourceInterface
 {
     /**

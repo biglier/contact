@@ -10,6 +10,7 @@
 
 namespace Slavik\Contact\Plugin;
 
+use Slavik\Contact\Model\Contact;
 use Slavik\Contact\Model\ContactFactory;
 use Slavik\Contact\Model\ContactRepository;
 
@@ -47,6 +48,7 @@ class ContactPlugin
     public function afterExecute($subject, $result)
     {
         $request = $subject->getRequest();
+        /** @var Contact $contact */
         $contact = $this->contactFactory->create();
         $contact->setData('customer_name', $request->getParam('name'));
         $contact->setData('customer_email', $request->getParam('email'));

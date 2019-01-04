@@ -8,6 +8,8 @@
 
 namespace Slavik\Contact\Block\Adminhtml\Answer\Edit;
 
+//Form for loking information about contact,saving or deleting it/
+use Slavik\Contact\Model\Contact;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
@@ -28,11 +30,19 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        \Slavik\Contact\Model\IsAnswered $options
+        \Slavik\Contact\Model\IsAnswered $options,
+        array $data = []
     )
     {
         $this->_options = $options;
-        parent::__construct($context, $registry, $formFactory);
+        parent::__construct($context, $registry, $formFactory, $data);
+    }
+
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->setId('edit_form');
+        $this->setTitle(__('Contact Information'));
     }
 
     /**
@@ -42,11 +52,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
-        $dateFormat = $this->_localeDate->getDateFormat(\IntlDateFormatter::SHORT);
+        /** @var Contact $model */
         $model = $this->_coreRegistry->registry('row_data');
+
+        /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create(
             ['data' => [
-                'id' => 'form',
+                'id' => 'edit_form',
                 'enctype' => 'multipart/form-data',
                 'action' => $this->getData('action'),
                 'method' => 'post'
@@ -59,7 +71,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             'base_fieldset',
             ['legend' => __('Contact Info'), 'class' => 'fieldset-wide']
         );
-        $fieldset->addField('contact_id', 'hidden', ['name' => 'contact_id']);
+        $fieldset->addField('contact_id', 'hidden', ['name' => 'id']);
 
         $fieldset->addField(
             'customer_name',

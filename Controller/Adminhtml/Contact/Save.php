@@ -10,9 +10,11 @@ namespace Slavik\Contact\Controller\Adminhtml\Contact;
 
 
 use Magento\Backend\App\Action\Context;
+use Slavik\Contact\Model\Contact;
 use Slavik\Contact\Model\ContactFactory;
 use Slavik\Contact\Model\ContactRepository;
 
+//Saving answer
 class Save extends \Magento\Backend\App\Action
 {
     /**
@@ -55,8 +57,11 @@ class Save extends \Magento\Backend\App\Action
             return;
         }
         try {
-            $contact = $this->contactFactory->create($this->contactRepository->getById($data['id']));
+
+            /** @var Contact $contact */
+            $contact = $this->contactRepository->getById($data['id']);
             $contact->setAnswer($data['answer']);
+            $contact->setAnsweredStatus(true);
             $this->contactRepository->save($contact);
             $this->messageManager->addSuccess(__('Answer has been successfully saved.'));
         } catch (\Exception $e) {
